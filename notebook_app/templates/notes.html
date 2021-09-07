@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 todo-content p-5">
+            <h5>ALL NOTES
+                <a href="{% url 'create-note' %}" class="btn btn-sm btn-outline-primary"
+                   style="text-align:right;float:right;font-size:15px">Create
+                    Notes</a>
+            </h5>
+            <hr>
+            {% if notes|length < 1 %}
+            <p class="alert alert-primary" style="text-align:center">No Notes Create One</p>
+            {% else %}
+            {% for note in notes %}
+            <div class="col">
+                <h6>{{forloop.counter}}. <a href="{% url 'note-detail' note.id%}" style="text-decoration:none">{{note.heading|capfirst}}</a>
+                </h6>
+
+                <p>{{note.content|capfirst }}</p>
+                <hr>
+            </div>
+            {% endfor %}
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+{% endblock content %}

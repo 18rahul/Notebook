@@ -1,0 +1,11 @@
+{% extends 'base.html'%}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+    <div class="col-md-8 todo-content p-5">
+        <h5>LOGOUT</h5>
+        <hr>
+        <p >if you want to login again <a href="{% url 'login'%}"><small>Click here</small></a></p>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,35 @@
+{% extends 'base.html'%}
+{% block content %}
+<div class="container todo-content">
+    <div class="col  p-5">
+        <h5>ALL TODOS
+            <a href="{% url 'create-todo' %}" class="btn  btn-outline-primary btn-sm"
+               style="text-align:right;float:right;font-size:15px">CREATE
+                TODO</a>
+        </h5>
+        <hr>
+        {% if todos|length < 1 %}
+        <p style="text-align:center" class="alert alert-primary">No Todos Available Create One</p>
+        {% else%}
+        <table class="table">
+            <tr>
+
+                <td>CONTENT</td>
+                <td>CREATED AT</td>
+                <td>UPDATE</td>
+                <td>DELETE</td>
+            </tr>
+            {% for td in todos %}
+            <tr>
+
+                <td>{{td.content|title}}</td>
+                <td>{{td.date_created}}</td>
+                <td><a href="{% url 'update-todo' td.id%}">Update</a></td>
+                <td><a href="{% url 'delete-todo' td.id%}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}
