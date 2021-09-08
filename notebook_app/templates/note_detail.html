@@ -3,22 +3,22 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 todo-content p-5">
-            <h5>Heading : {{note.heading|title}}
+            <h5>{{note.heading|title}}
 
             </h5>
             <hr>
 
             <div class="col">
-                <h6> {{note.heading|title}}</h6>
+
                 <p>{{note.content|title}}</p>
-                <p>Date Created.{{note.date_created}}
-                    <span style="text-align:right;float:right">
+
+                <p>Created.{{note.date_created}}</p>
+                <p>
                     <a href="{% url 'update-note' note.id%}" class="btn btn-outline-secondary btn-sm">UPDATE</a>
                     <a href="{% url 'delete-note' note.id%}" class="btn btn-outline-primary btn-sm">DELETE</a>
-                    </span>
                 </p>
-                <hr>
             </div>
+            <hr>
         </div>
     </div>
 </div>
